@@ -46,7 +46,7 @@ The library uses that file to load the dataset.
 The Astyx Hires dataset has 546 entries (from `0` to `545`). Each entry has
 lidar, radar, camera, calibration data as well as ground truth data.
 
-Just leav by examples here
+Just lead by examples here
 
 1. Plot the lidar point cloud of a given entry
 
