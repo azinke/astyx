@@ -1,0 +1,8 @@
+# Dataset
+/dataset_astyx_hires2019
+
+# Virtual environment
+/venv
+
+# Cache files
+*cache*/
