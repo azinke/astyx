@@ -48,6 +48,13 @@ lidar, radar, camera, calibration data as well as ground truth data.
 
 Just lead by examples here
 
+0. Overview of the dataset
+
+```bash
+python dataset.py --overview
+```
+
+
 1. Plot the lidar point cloud of a given entry
 
 ```bash
@@ -154,6 +161,34 @@ Both filtering criteria are not mandatory. At leat one must be provided. If the
 NOTE: The search starts from the entry `0` and stops when the `max` number of
 objects have been found. This operation is quite slow as for each entry some
 data need to be loaded along with some computation.
+
+8. Bird eye view of lidar/radar pointcloud
+
+```bash
+# Lidar pointcloud
+python dataset.py -i <index> --lidar -bev [--resolution <res> --width <width> --height <height>]
+
+# Radar pointcloud
+python dataset.py -i <index> --radar -bev [--resolution <res> --width <width> --height <height>]
+```
+
+Resolution, width and height parameters are optional. The default values are:
+- Resolution: `0.05` (`5cm/pixel`)
+- Width: `80` (meter)
+- Height: `80` (meter)
+
+The RGB channels of each pixel in the bird-eye-view are encoded as follow:
+- R (red channel): Distance informatiom of each data point in the pointcloud
+- G (green channel): Height information (z-axis)
+- B (blue channel): Intensity of reflection for lidar pointcloud and radial velocity for radar pointcloud
+
+```bash
+# Bird eye view output of the lidar point cloud from the dataset entry 146
+python dataset.py -i 146 --lidar -bev
+
+# Bird eye view output of the radar point cloud from the dataset entry 146
+python dataset.py -i 146 --radar -bev
+```
 
 ## References
 
